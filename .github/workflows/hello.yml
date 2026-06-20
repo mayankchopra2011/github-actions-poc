@@ -1,0 +1,23 @@
+# Worklfows
+  #should have name
+#Jobs(stages)
+  #should be inside the workflow, tells what to do, can be more than 1 jobs, it is an object so needs indentation, it is like stages
+#Steps
+  #should be inside the jobs
+#Actions
+  #should be inside the steps
+
+name: Hello
+#on tells when to run the workflow (give indentation inside)
+on: 
+  workflow_dispatch: 
+jobs:
+#say-hello is 1st job, give indentation
+  say-hello:
+  #creates an ephemeral container with ubuntu running, i.e. only runs for the workflow
+    runs-on: ubuntu-latest
+    #ephemeral container will have steps to execute, hence name those steps
+    steps:
+      - name: Say hello to all
+        run: echo "Hello All"
+    
