@@ -1,0 +1,21 @@
+#goal of workflow
+#to check syntax --> linting does the format check
+
+name: AutoLinter
+on:
+  push: 
+   #to run only for files ending with .py 
+    paths: "*.py"
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+#this step will automatically clone the code of the current branch i.e. main onto runner, 
+#check github actions official repo to get the actions
+      - name: Checkout the code
+        uses: actions/checkout@v7 
+      - name: Install linter
+        run: pip install ruff
+  # build:
+  # test:
+  # deploy:
